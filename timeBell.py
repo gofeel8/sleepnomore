@@ -1,9 +1,10 @@
+#-*- coding:utf-8 -*-
 import sys
 import time
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QMessageBox, QCheckBox, QTimeEdit, QSpinBox, QDial, QLineEdit, QRadioButton
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import QCoreApplication, QTime, Qt, QTimer, QUrl
-from PyQt5.QtMultimedia import QSoundEffect
+#from PyQt5.QtMultimedia import QSoundEffect
 
 import os
 # from PyQt5.QtCore import QTime, QTimer
@@ -12,7 +13,7 @@ import os
 
 class setTime(QWidget):
     def __init__(self):
-        super().__init__()
+        super(QWidget,self).__init__()
         self.initUI()
 
     def initUI(self):
@@ -57,7 +58,7 @@ class setTime(QWidget):
         self.timer = QTimer()
         self.timer.timeout.connect(self.tChk)
 
-        self.bell = QSoundEffect()
+#        self.bell = QSoundEffect()
         # self.bell.setSource(QUrl.fromLocalFile('bell_orginal.wav'))
         # self.bell.play()
 
@@ -102,7 +103,7 @@ class setTime(QWidget):
             os.system("omxplayer bell_text.mp3")
             #self.bell.setSource(QUrl.fromLocalFile('bell_text.mp3'))
             print("알람문구 사용")
-        self.bell.play()
+#        self.bell.play()
 
 
 if __name__ == '__main__':

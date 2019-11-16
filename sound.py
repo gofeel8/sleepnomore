@@ -4,7 +4,7 @@ import time
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QMessageBox, QCheckBox, QTimeEdit, QSpinBox, QDial, QLineEdit, QTextEdit
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import QCoreApplication, QTime, Qt, QTimer, QUrl
-from PyQt5.QtMultimedia import QSoundEffect
+#from PyQt5.QtMultimedia import QSoundEffect
 
 from gtts import gTTS
 # from PyQt5.QtCore import QTime, QTimer
@@ -13,7 +13,7 @@ from gtts import gTTS
 
 class setSound(QWidget):
     def __init__(self):
-        super().__init__()
+        super(QWidget,self).__init__()
         self.initUI()
 
     def initUI(self):
@@ -61,7 +61,7 @@ class setSound(QWidget):
         f.write(s_txt)
         if s_txt:
             # print(s_txt)
-            tts = gTTS(text=s_txt, lang='ko', slow=False)
+            tts = gTTS(text=s_txt, lang='en', slow=False)
             tts.save("bell_text.mp3")
         f.close()
         self.hide()

@@ -4,7 +4,7 @@ import time
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QMessageBox, QCheckBox, QTimeEdit, QSpinBox, QDial
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import QCoreApplication, QTime, Qt, QTimer, QUrl, QDate, Qt
-from PyQt5.QtMultimedia import QSoundEffect
+#from PyQt5.QtMultimedia import QSoundEffect
 from alarmUI import Ui_Form
 from timeBell import setTime
 from sound import setSound
@@ -14,7 +14,8 @@ from sound import setSound
 
 class Alarm(QWidget, Ui_Form):
     def __init__(self):
-        super().__init__()
+        super(QWidget,self).__init__()
+        super(Ui_Form,self).__init__()
         self.setupUi(self)
         self.timer = QTimer()
         self.timer.timeout.connect(self.chk)
