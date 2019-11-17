@@ -10,6 +10,10 @@ import os
 # from PyQt5.QtCore import QTime, QTimer
 # from PyQt5.QtWidgets import QApplication, QLCDNumber
 
+import alarmyolo
+from picamera import PiCamera
+
+camera = PiCamera()
 
 class setTime(QWidget):
     def __init__(self):
@@ -92,7 +96,9 @@ class setTime(QWidget):
         # print(self.basicBell.isChecked())
 
         if self.day_chk[w].isChecked() and self.time_st[w].time().hour() == t.tm_hour and t.tm_min == self.time_st[w].time().minute() and t.tm_sec == 0:
-            self.play()
+            if(alarmyolo.detect(camera)):
+		    self.play()
+
 
     def play(self):
         if self.basicBell.isChecked():
