@@ -11,6 +11,7 @@ from sound import setSound
 # from PyQt5.QtCore import QTime, QTimer
 # from PyQt5.QtWidgets import QApplication, QLCDNumber
 
+import picam
 
 class Alarm(QWidget, Ui_Form):
     def __init__(self):
@@ -35,7 +36,7 @@ class Alarm(QWidget, Ui_Form):
         self.date.setText(date.toString(Qt.DefaultLocaleLongDate))
 
     def showCamera(self):
-        pass
+        picam.show()
         # t = time.localtime()
         # w = t.tm_wday+1
         # print(h.bell_text[w].text())

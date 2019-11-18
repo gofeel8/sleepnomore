@@ -13,7 +13,7 @@ import os
 import alarmyolo
 from picamera import PiCamera
 
-camera = PiCamera()
+#camera = PiCamera()
 
 class setTime(QWidget):
     def __init__(self):
@@ -96,8 +96,10 @@ class setTime(QWidget):
         # print(self.basicBell.isChecked())
 
         if self.day_chk[w].isChecked() and self.time_st[w].time().hour() == t.tm_hour and t.tm_min == self.time_st[w].time().minute() and t.tm_sec == 0:
-            if(alarmyolo.detect(camera)):
-		    self.play()
+            for z in range (3):
+		    if(alarmyolo.detect()):
+			    self.play()
+	            time.sleep(15)
 
 
     def play(self):
@@ -106,7 +108,9 @@ class setTime(QWidget):
             os.system("omxplayer bell_orginal.wav")
             #self.bell.setSource(QUrl.fromLocalFile('bell_orginal.wav'))
         elif self.customBell.isChecked():
-            os.system("omxplayer bell_text.mp3")
+	    for q in range(3):
+                  os.system("mpg321 -g 350 bell_text.mp3")
+		  time.sleep(2)
             #self.bell.setSource(QUrl.fromLocalFile('bell_text.mp3'))
             print("알람문구 사용")
 #        self.bell.play()
