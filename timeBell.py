@@ -97,15 +97,18 @@ class setTime(QWidget):
 
         if self.day_chk[w].isChecked() and self.time_st[w].time().hour() == t.tm_hour and t.tm_min == self.time_st[w].time().minute() and t.tm_sec == 0:
             for z in range (3):
+		    os.system("sudo ./hub-ctrl -h 1 -P 2 -p 1")
 		    if(alarmyolo.detect()):
 			    self.play()
-	            time.sleep(15)
+#  time.sleep(15)
+	            os.system("sudo ./hub-ctrl -h 1 -P 2 -p 0")
+	            time.sleep(10)
 
 
     def play(self):
         if self.basicBell.isChecked():
             print("기본벨 사용")
-            os.system("omxplayer bell_orginal.wav")
+            os.system("omxplayer bell_orginal.mp3")
             #self.bell.setSource(QUrl.fromLocalFile('bell_orginal.wav'))
         elif self.customBell.isChecked():
 	    for q in range(3):

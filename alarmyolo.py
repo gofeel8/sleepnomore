@@ -9,7 +9,7 @@ import cv2
 #camera = PiCamera()
 #iframe = 0
 def detect():
-	os.system("sudo ./hub-ctrl -h 1 -P 2 -p 1")
+#	os.system("sudo ./hub-ctrl -h 1 -P 2 -p 1")
 #	camera = pi
 	camera = PiCamera()
 #Yolo v3 is a full convolutional model. It does not care the size of input image, as long as h and w are multiplication of 32
@@ -64,7 +64,7 @@ def detect():
 			       print("wake up")
 			       yolo_proc.kill()
                                camera.close()
-	                       os.system("sudo ./hub-ctrl -h 1 -P 2 -p 0")
+#	                       os.system("sudo ./hub-ctrl -h 1 -P 2 -p 0")
 			       return True
 		    cnt += 1
 		    print("count : " + str(cnt))
@@ -72,7 +72,7 @@ def detect():
 		        print("False")
 		        camera.close()
 			yolo_proc.kill()
-			os.system("sudo ./hub-ctrl -h 1 -P 2 -p 0")
+#			os.system("sudo ./hub-ctrl -h 1 -P 2 -p 0")
 			return False
 	    except Exception:
 		pass
